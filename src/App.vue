@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!--<img src="./assets/logo.png">-->
+    <h1>Pixar</h1>
+    <pixar-player></pixar-player>
     <hello></hello>
   </div>
 </template>
 
 <script>
   import Hello from './components/Hello'
+  import pixarPlayer from './components/PixarPlayer'
 
   export default {
     name: 'app',
     components: {
-      Hello
+      Hello,
+      pixarPlayer 
     }
   }
 
