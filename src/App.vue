@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
+    <h1>{{myAwesomeTitle}}</h1>
+    <p>{{renderTime}}</p> 
     <pixar-player :sources="video.sources" :options="video.options"></pixar-player>
     <!--<hello></hello>-->
   </div>
@@ -14,6 +16,8 @@
     name: 'app',
     data () {
       return {
+          myAwesomeTitle: 'Here is your player , playa',
+          renderTime: new Date().toTimeString(),
           video: {
             sources: [
               {
