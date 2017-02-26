@@ -1,5 +1,9 @@
 <template>
   <div class="pixar-player">
+    <div class="pixar-controls">
+      <button type="text" @click="onPlay()">Play</button>
+      <button type="text" @click="onPause()">Pause</button>
+    </div>
     <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" :poster="options.poster" data-setup="{}">
       <source v-for="source in sources" :src="source.src" :type="source.type">
       </source>
@@ -29,10 +33,25 @@
       }
     },
     data() {
-      return {}
+      return {
+        $video: null,
+        onPlay() {
+          this.$video.play()
+        },
+        onPause() {
+          this.$video.pause()
+        }
+      }
+    },
+    ready() {
+      console.info(this.$video)
     },
     created() {
       // this runs when component is created
+      setTimeout(() => {
+        console.warn(`I know I'm not supposed to do this, but ready() didn't work`)
+        this.$video = this.$el.getElementsByTagName('video')[0]
+      }, 0);
     }
   }
 
