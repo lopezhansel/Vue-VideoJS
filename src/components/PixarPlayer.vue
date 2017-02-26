@@ -1,5 +1,6 @@
 <template>
   <div class="pixar-player">
+    <link href="http://vjs.zencdn.net/5.16.0/video-js.css" rel="stylesheet">
     <div class="pixar-controls">
       <button type="text" @click="onPlay()">Play</button>
       <button type="text" @click="onPause()">Pause</button>
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+  import videojs from 'video.js'
   export default {
     name: 'pixar-player',
     props: {
@@ -44,7 +46,8 @@
       }
     },
     mounted() {
-      this.$video = this.$el.getElementsByTagName('video')[0]
+      this.$video = videojs(this.$el.getElementsByTagName('video')[0])
+      console.info(this.$video)
     },
     created() {}
   }
