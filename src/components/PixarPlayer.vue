@@ -43,16 +43,10 @@
         }
       }
     },
-    ready() {
-      console.info(this.$video)
+    mounted() {
+      this.$video = this.$el.getElementsByTagName('video')[0]
     },
-    created() {
-      // this runs when component is created
-      setTimeout(() => {
-        console.warn(`I know I'm not supposed to do this, but ready() didn't work`)
-        this.$video = this.$el.getElementsByTagName('video')[0]
-      }, 0);
-    }
+    created() {}
   }
 
 </script>
