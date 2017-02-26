@@ -7,12 +7,12 @@
       <pixar-player :sources="video.sources" :options="video.options"></pixar-player>
       <br>
     </div>
-    <!--<hello></hello>-->
+    <!--<about></about>-->
   </div>
 </template>
 
 <script>
-  import Hello from './components/Hello'
+  import About from './components/Hello'
   import PixarPlayer from './components/PixarPlayer'
   import videosJSON from './assets/VideosJSON'
 
@@ -26,7 +26,7 @@
       }
     },
     components: {
-      Hello,
+      About,
       PixarPlayer
     }
   }
