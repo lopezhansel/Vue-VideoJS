@@ -2,8 +2,8 @@
   <div class="pixar-player">
     <link href="http://vjs.zencdn.net/5.16.0/video-js.css" rel="stylesheet">
     <div class="pixar-controls">
-      <button type="text" @click="onPlay()">Play</button>
-      <button type="text" @click="onPause()">Pause</button>
+      <button type="text" @click="onPlay">Play</button>
+      <button type="text" @click="onPause">Pause</button>
     </div>
     <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" :poster="options.poster" data-setup="{}">
       <source v-for="source in sources" :src="source.src" :type="source.type">
@@ -37,12 +37,14 @@
     data() {
       return {
         $video: null,
-        onPlay() {
-          this.$video.play()
-        },
-        onPause() {
-          this.$video.pause()
-        }
+      }
+    },
+    methods: {
+      onPlay(clickEevent) {
+        this.$video.play()
+      },
+      onPause(clickEvent) {
+        this.$video.pause()
       }
     },
     mounted() {
