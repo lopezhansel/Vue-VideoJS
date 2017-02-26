@@ -2,8 +2,11 @@
   <div id="app">
     <!--<img src="./assets/logo.png">-->
     <h1>{{myAwesomeTitle}}</h1>
-    <p>{{renderTime}}</p> 
-    <pixar-player :sources="video.sources" :options="video.options"></pixar-player>
+    <p>{{renderTime}}</p>
+    <div v-for="video in videos">
+      <pixar-player :sources="video.sources" :options="video.options"></pixar-player>
+      <br>
+    </div>
     <!--<hello></hello>-->
   </div>
 </template>
@@ -11,33 +14,20 @@
 <script>
   import Hello from './components/Hello'
   import PixarPlayer from './components/PixarPlayer'
+  import videosJSON from './assets/VideosJSON'
 
   export default {
     name: 'app',
-    data () {
+    data() {
       return {
-          myAwesomeTitle: 'Here is your player , playa',
-          renderTime: new Date().toTimeString(),
-          video: {
-            sources: [
-              {
-                // src: 'http://covteam.u.qiniudn.com/oceans.mp4',
-                src: 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4',
-                type: 'video/mp4'
-              }
-            ],
-            options: {
-              autoplay: true,
-              volume: 0.6,
-              // poster: 'http://d2zihajmogu5jn.cloudfront.net/tears-of-steel/tears_of_steel.jpg'
-              poster: 'http://covteam.u.qiniudn.com/poster.png'
-            }
-          }
-        }  
-      },
+        myAwesomeTitle: 'Here is your player , playa',
+        renderTime: new Date().toTimeString(),
+        videos: videosJSON
+      }
+    },
     components: {
       Hello,
-      PixarPlayer 
+      PixarPlayer
     }
   }
 
@@ -54,4 +44,3 @@
   }
 
 </style>
-
