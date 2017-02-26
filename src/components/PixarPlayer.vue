@@ -1,7 +1,6 @@
 <template>
   <div class="pixar-player">
-    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" :poster="options.poster"
-      data-setup="{}">
+    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" :poster="options.poster" data-setup="{}">
       <source v-for="source in sources" :src="source.src" :type="source.type">
       </source>
       <source src="MY_VIDEO.webm" type='video/webm'>
@@ -30,8 +29,7 @@
       }
     },
     data() {
-      return {
-      }
+      return {}
     },
     created() {
       // this runs when component is created
